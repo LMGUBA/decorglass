@@ -344,16 +344,16 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
 
         // Encabezado
         text += '═══════════════════\n';
-        text += '📄 *PROFORMA DE VENTA*\n';
+        text += '*PROFORMA DE VENTA*\n';
         text += '*DecorGlass - Diseños & Proyectos*\n';
         text += '═══════════════════\n\n';
 
         // Fecha
-        text += `📅 *Fecha de Emisión:* ${fechaEmision}\n`;
-        text += `⏳ *Válido por:* 10 días\n\n`;
+        text += `*Fecha de Emisión:* ${fechaEmision}\n`;
+        text += `*Válido por:* 10 días\n\n`;
 
         // Datos del cliente
-        text += '👤 *DATOS DEL CLIENTE*\n';
+        text += '*DATOS DEL CLIENTE*\n';
         text += '───────────────────\n';
         text += `• *Nombre:* ${nombreCliente || '—'}\n`;
         text += `• *DNI/RUC:* ${dniRuc || '—'}\n`;
@@ -361,7 +361,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
         text += `• *Dirección:* ${direccion || '—'}\n\n`;
 
         // Detalle de productos
-        text += '📦 *DETALLE DE PRODUCTOS*\n';
+        text += '*DETALLE DE PRODUCTOS*\n';
         text += '───────────────────\n';
         items.forEach((item, index) => {
             const itemTotal = item.cantidad * item.precioUnitario;
@@ -372,7 +372,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
         });
 
         // Totales
-        text += '\n💰 *RESUMEN DE TOTALES*\n';
+        text += '\n *RESUMEN DE TOTALES*\n';
         text += '═══════════════════\n';
         text += `   Subtotal:    S/.${subtotal.toFixed(2)}\n`;
         text += `   IGV (18%):   S/.${impuestos.toFixed(2)}\n`;
@@ -382,7 +382,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
 
         // Observaciones
         if (observaciones) {
-            text += `\n📝 *OBSERVACIONES:*\n`;
+            text += `\n *OBSERVACIONES:*\n`;
             text += `${observaciones}\n`;
         }
 
@@ -417,17 +417,17 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
     if (!isOpen) return null;
 
     return ReactDOM.createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
             {/* Modal Container */}
             <div className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden flex flex-col animate-fade-in">
                 {/* Modal Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-green-700 to-green-800 shrink-0">
-                    <div className="flex items-center gap-3">
-                        <FileText className="h-6 w-6 text-white" />
-                        <h2 className="text-xl font-bold text-white">Proforma de Venta</h2>
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200 bg-gradient-to-r from-green-700 to-green-800 shrink-0">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <FileText className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                        <h2 className="text-base sm:text-xl font-bold text-white">Proforma de Venta</h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -438,25 +438,25 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
                 </div>
 
                 {/* Scrollable Content */}
-                <div className="overflow-y-auto flex-1 p-6">
-                    {/* ===== PROFORMA PREVIEW (this is what gets converted to PDF) ===== */}
+                <div className="overflow-y-auto flex-1 p-3 sm:p-6">
+                    {/* ===== PROFORMA PREVIEW ===== */}
                     <div
                         ref={proformaRef}
-                        className="bg-white border border-slate-300 rounded-xl p-8 shadow-sm mx-auto"
+                        className="bg-white border border-slate-300 rounded-xl p-4 sm:p-8 shadow-sm mx-auto"
                         style={{ fontFamily: 'Arial, sans-serif', maxWidth: '794px', width: '100%' }}
                     >
                         {/* Header */}
-                        <div className="flex items-start justify-between mb-6">
-                            <div className="flex items-center gap-3">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 gap-2">
+                            <div className="flex items-center gap-2 sm:gap-3">
                                 <img
                                     src="/images/logo-decorglass.svg"
                                     alt="DecorGlass Logo"
-                                    className="h-12 w-auto object-contain"
+                                    className="h-8 sm:h-12 w-auto object-contain"
                                 />
-                                <span className="text-lg font-bold text-slate-800 ml-2">PROFORMA DE VENTA</span>
+                                <span className="text-sm sm:text-lg font-bold text-slate-800">PROFORMA DE VENTA</span>
                             </div>
-                            <div className="text-right">
-                                <p className="text-sm font-semibold text-slate-700">
+                            <div className="sm:text-right">
+                                <p className="text-xs sm:text-sm font-semibold text-slate-700">
                                     Fecha de Emisión: <span className="text-slate-900">{fechaEmision}</span>
                                 </p>
                             </div>
@@ -464,7 +464,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
 
                         {/* Client Info */}
                         <div className="space-y-3 mb-5">
-                            <div className="flex gap-4">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                 <div className="flex-1">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">Nombre del Cliente</label>
                                     <input
@@ -475,7 +475,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
                                         className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
-                                <div className="w-48">
+                                <div className="sm:w-48">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">DNI / RUC</label>
                                     <input
                                         type="text"
@@ -486,8 +486,8 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
                                     />
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="w-48">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <div className="sm:w-48">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">Teléfono</label>
                                     <input
                                         type="text"
@@ -515,72 +515,74 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
 
                         {/* Items Table */}
                         <div className="border border-slate-400 rounded-lg overflow-hidden mb-5">
-                            <table className="w-full text-sm">
-                                <thead>
-                                    <tr className="bg-slate-100">
-                                        <th className="border-r border-b border-slate-400 px-3 py-2 text-left font-bold text-slate-700 w-12">Ítem</th>
-                                        <th className="border-r border-b border-slate-400 px-3 py-2 text-left font-bold text-slate-700">Descripción del Mueble y Materiales</th>
-                                        <th className="border-r border-b border-slate-400 px-3 py-2 text-center font-bold text-slate-700 w-24">Cantidad</th>
-                                        <th className="border-r border-b border-slate-400 px-3 py-2 text-center font-bold text-slate-700 w-28">Precio Unitario</th>
-                                        <th className="border-b border-slate-400 px-3 py-2 text-center font-bold text-slate-700 w-28">Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {items.map((item, index) => (
-                                        <tr key={item.id} className="hover:bg-green-50/50 transition-colors group">
-                                            <td className="border-r border-b border-slate-300 px-3 py-2 text-center text-slate-600 font-medium">
-                                                {index + 1}
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-2 py-1">
-                                                <input
-                                                    type="text"
-                                                    value={item.descripcion}
-                                                    onChange={(e) => updateItem(item.id, 'descripcion', e.target.value)}
-                                                    placeholder="Descripción del producto..."
-                                                    className="w-full outline-none py-1 px-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-2 py-1">
-                                                <input
-                                                    type="number"
-                                                    min="1"
-                                                    value={item.cantidad}
-                                                    onChange={(e) => updateItem(item.id, 'cantidad', parseInt(e.target.value) || 0)}
-                                                    className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent"
-                                                />
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-2 py-1">
-                                                <div className="flex items-center justify-center">
-                                                    <span className="text-slate-500 mr-1">S/.</span>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm" style={{ minWidth: '480px' }}>
+                                    <thead>
+                                        <tr className="bg-slate-100">
+                                            <th className="border-r border-b border-slate-400 px-2 sm:px-3 py-2 text-left font-bold text-slate-700 w-10 sm:w-12">Ítem</th>
+                                            <th className="border-r border-b border-slate-400 px-2 sm:px-3 py-2 text-left font-bold text-slate-700">Descripción</th>
+                                            <th className="border-r border-b border-slate-400 px-2 sm:px-3 py-2 text-center font-bold text-slate-700 w-16 sm:w-24">Cant.</th>
+                                            <th className="border-r border-b border-slate-400 px-2 sm:px-3 py-2 text-center font-bold text-slate-700 w-20 sm:w-28">P. Unit.</th>
+                                            <th className="border-b border-slate-400 px-2 sm:px-3 py-2 text-center font-bold text-slate-700 w-20 sm:w-28">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {items.map((item, index) => (
+                                            <tr key={item.id} className="hover:bg-green-50/50 transition-colors group">
+                                                <td className="border-r border-b border-slate-300 px-2 sm:px-3 py-2 text-center text-slate-600 font-medium">
+                                                    {index + 1}
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-2 py-1">
+                                                    <input
+                                                        type="text"
+                                                        value={item.descripcion}
+                                                        onChange={(e) => updateItem(item.id, 'descripcion', e.target.value)}
+                                                        placeholder="Descripción del producto..."
+                                                        className="w-full outline-none py-1 px-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
                                                     <input
                                                         type="number"
-                                                        min="0"
-                                                        step="0.01"
-                                                        value={item.precioUnitario}
-                                                        onChange={(e) => updateItem(item.id, 'precioUnitario', parseFloat(e.target.value) || 0)}
-                                                        className="w-20 outline-none text-center py-1 text-sm text-slate-800 bg-transparent"
+                                                        min="1"
+                                                        value={item.cantidad}
+                                                        onChange={(e) => updateItem(item.id, 'cantidad', parseInt(e.target.value) || 0)}
+                                                        className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent"
                                                     />
-                                                </div>
-                                            </td>
-                                            <td className="border-b border-slate-300 px-3 py-2 text-center font-semibold text-slate-800 relative">
-                                                S/.{(item.cantidad * item.precioUnitario).toFixed(2)}
-                                                {items.length > 1 && (
-                                                    <button
-                                                        data-pdf-hide
-                                                        onClick={() => removeItem(item.id)}
-                                                        className="absolute right-1 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 transition-all p-0.5"
-                                                        title="Eliminar ítem"
-                                                    >
-                                                        <Trash2 className="h-3.5 w-3.5" />
-                                                    </button>
-                                                )}
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
+                                                    <div className="flex items-center justify-center">
+                                                        <span className="text-slate-500 mr-0.5 text-xs">S/.</span>
+                                                        <input
+                                                            type="number"
+                                                            min="0"
+                                                            step="0.01"
+                                                            value={item.precioUnitario}
+                                                            onChange={(e) => updateItem(item.id, 'precioUnitario', parseFloat(e.target.value) || 0)}
+                                                            className="w-16 sm:w-20 outline-none text-center py-1 text-sm text-slate-800 bg-transparent"
+                                                        />
+                                                    </div>
+                                                </td>
+                                                <td className="border-b border-slate-300 px-2 sm:px-3 py-2 text-center font-semibold text-slate-800 relative text-xs sm:text-sm">
+                                                    S/.{(item.cantidad * item.precioUnitario).toFixed(2)}
+                                                    {items.length > 1 && (
+                                                        <button
+                                                            data-pdf-hide
+                                                            onClick={() => removeItem(item.id)}
+                                                            className="absolute right-0.5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 transition-all p-0.5"
+                                                            title="Eliminar ítem"
+                                                        >
+                                                            <Trash2 className="h-3.5 w-3.5" />
+                                                        </button>
+                                                    )}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
 
-                            {/* Add Item Button - inside table area */}
+                            {/* Add Item Button */}
                             <div data-pdf-hide className="bg-slate-50 px-3 py-2 border-t border-slate-300">
                                 <button
                                     onClick={addItem}
@@ -594,7 +596,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
 
                         {/* Totals */}
                         <div className="flex justify-end mb-6">
-                            <div className="w-64 border border-slate-400 rounded-lg overflow-hidden">
+                            <div className="w-full sm:w-64 border border-slate-400 rounded-lg overflow-hidden">
                                 <div className="flex justify-between px-4 py-2 border-b border-slate-300 bg-white">
                                     <span className="font-bold text-sm text-slate-700">Subtotal</span>
                                     <span className="text-sm text-slate-800">S/.{subtotal.toFixed(2)}</span>
@@ -625,33 +627,33 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
                 </div>
 
                 {/* Action Buttons (sticky footer) */}
-                <div className="shrink-0 border-t border-slate-200 bg-slate-50 px-6 py-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="shrink-0 border-t border-slate-200 bg-slate-50 px-4 sm:px-6 py-3 sm:py-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                         {/* Download PDF */}
                         <button
                             onClick={handleDownloadPDF}
                             disabled={isGeneratingPdf}
-                            className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 disabled:bg-slate-500 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 disabled:bg-slate-500 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Download className="h-5 w-5" />
+                            <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                             {isGeneratingPdf ? 'Generando...' : 'Descargar PDF'}
                         </button>
 
                         {/* Send to Company WhatsApp */}
                         <button
                             onClick={handleSendWhatsAppEmpresa}
-                            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Send className="h-5 w-5" />
+                            <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                             Enviar a Empresa
                         </button>
 
                         {/* Send to Client WhatsApp */}
                         <button
                             onClick={handleSendWhatsAppCliente}
-                            className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Send className="h-5 w-5" />
+                            <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                             Enviar a Cliente
                         </button>
                     </div>

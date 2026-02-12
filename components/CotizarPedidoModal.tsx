@@ -299,16 +299,16 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
 
         // Encabezado
         text += '═══════════════════\n';
-        text += '📋 *PROFORMA DE PEDIDO*\n';
+        text += ' *PROFORMA DE PEDIDO*\n';
         text += '*DecorGlass - Diseños & Proyectos*\n';
         text += '═══════════════════\n\n';
 
         // Fechas
-        text += `📅 *Fecha de Pedido:* ${fechaPedido}\n`;
-        text += `🚚 *Fecha de Entrega:* ${fechaEntrega || 'Por definir'}\n\n`;
+        text += ` *Fecha de Pedido:* ${fechaPedido}\n`;
+        text += ` *Fecha de Entrega:* ${fechaEntrega || 'Por definir'}\n\n`;
 
         // Datos del cliente
-        text += '👤 *DATOS DEL CLIENTE*\n';
+        text += ' *DATOS DEL CLIENTE*\n';
         text += '───────────────────\n';
         text += `• *Nombre:* ${nombreCliente || '—'}\n`;
         text += `• *DNI/RUC:* ${dniRuc || '—'}\n`;
@@ -316,24 +316,24 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
         text += `• *Dirección:* ${direccion || '—'}\n\n`;
 
         // Producto
-        text += `🏷️ *Producto:* ${product.name}\n\n`;
+        text += ` *Producto:* ${product.name}\n\n`;
 
         // Detalle de componentes
-        text += '🔧 *DETALLE DE COMPONENTES*\n';
+        text += ' *DETALLE DE COMPONENTES*\n';
         text += '───────────────────\n';
         items.forEach((item, index) => {
             if (item.componente || item.medidas || item.colorAcabado || item.herrajes || item.notasTaller) {
                 text += `\n*${index + 1}. ${item.componente || '—'}*\n`;
-                if (item.medidas) text += `   📐 Medidas: ${item.medidas}\n`;
-                if (item.colorAcabado) text += `   🎨 Color/Acabado: ${item.colorAcabado}\n`;
-                if (item.herrajes) text += `   🔩 Herrajes: ${item.herrajes}\n`;
-                if (item.notasTaller) text += `   📝 Notas Taller: ${item.notasTaller}\n`;
+                if (item.medidas) text += `    Medidas: ${item.medidas}\n`;
+                if (item.colorAcabado) text += `    Color/Acabado: ${item.colorAcabado}\n`;
+                if (item.herrajes) text += `    Herrajes: ${item.herrajes}\n`;
+                if (item.notasTaller) text += `    Notas Taller: ${item.notasTaller}\n`;
             }
         });
 
         // Observaciones técnicas
         if (observacionesTecnicas) {
-            text += `\n\n⚙️ *OBSERVACIONES TÉCNICAS:*\n`;
+            text += `\n\n *OBSERVACIONES TÉCNICAS:*\n`;
             text += '───────────────────\n';
             text += `${observacionesTecnicas}\n`;
         }
@@ -369,17 +369,17 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
     if (!isOpen) return null;
 
     return ReactDOM.createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
             {/* Backdrop */}
             <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
             {/* Modal Container */}
             <div className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden flex flex-col animate-fade-in">
                 {/* Modal Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-green-700 to-green-800 shrink-0">
-                    <div className="flex items-center gap-3">
-                        <ClipboardList className="h-6 w-6 text-white" />
-                        <h2 className="text-xl font-bold text-white">Proforma de Pedido</h2>
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200 bg-gradient-to-r from-green-700 to-green-800 shrink-0">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <ClipboardList className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                        <h2 className="text-base sm:text-xl font-bold text-white">Proforma de Pedido</h2>
                     </div>
                     <button
                         onClick={onClose}
@@ -390,34 +390,34 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                 </div>
 
                 {/* Scrollable Content */}
-                <div className="overflow-y-auto flex-1 p-6">
-                    {/* ===== PROFORMA PREVIEW (this gets converted to PDF) ===== */}
+                <div className="overflow-y-auto flex-1 p-3 sm:p-6">
+                    {/* ===== PROFORMA PREVIEW ===== */}
                     <div
                         ref={proformaRef}
-                        className="bg-white border border-slate-300 rounded-xl p-8 shadow-sm mx-auto"
+                        className="bg-white border border-slate-300 rounded-xl p-4 sm:p-8 shadow-sm mx-auto"
                         style={{ fontFamily: 'Arial, sans-serif', maxWidth: '794px', width: '100%' }}
                     >
                         {/* Header */}
-                        <div className="flex items-start justify-between mb-6">
-                            <div className="flex items-center gap-3">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 gap-2">
+                            <div className="flex items-center gap-2 sm:gap-3">
                                 <img
                                     src="/images/logo-decorglass.svg"
                                     alt="DecorGlass Logo"
-                                    className="h-12 w-auto object-contain"
+                                    className="h-8 sm:h-12 w-auto object-contain"
                                 />
-                                <span className="text-lg font-bold text-slate-800 ml-2">PROFORMA DE PEDIDO</span>
+                                <span className="text-sm sm:text-lg font-bold text-slate-800">PROFORMA DE PEDIDO</span>
                             </div>
-                            <div className="text-right space-y-1">
-                                <p className="text-sm font-semibold text-slate-700">
+                            <div className="sm:text-right space-y-1">
+                                <p className="text-xs sm:text-sm font-semibold text-slate-700">
                                     Fecha de Pedido: <span className="text-slate-900">{fechaPedido}</span>
                                 </p>
-                                <div className="flex items-center justify-end gap-2">
-                                    <label className="text-sm font-semibold text-slate-700">Fecha de Entrega:</label>
+                                <div className="flex items-center sm:justify-end gap-2">
+                                    <label className="text-xs sm:text-sm font-semibold text-slate-700">Entrega:</label>
                                     <input
                                         type="date"
                                         value={fechaEntrega}
                                         onChange={(e) => setFechaEntrega(e.target.value)}
-                                        className="border-b-2 border-slate-300 focus:border-green-600 outline-none py-0.5 px-1 text-sm text-slate-900 bg-transparent transition-colors"
+                                        className="border-b-2 border-slate-300 focus:border-green-600 outline-none py-0.5 px-1 text-xs sm:text-sm text-slate-900 bg-transparent transition-colors"
                                     />
                                 </div>
                             </div>
@@ -425,7 +425,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
 
                         {/* Client Info */}
                         <div className="space-y-3 mb-5">
-                            <div className="flex gap-4">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                                 <div className="flex-1">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">Nombre del Cliente</label>
                                     <input
@@ -436,7 +436,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
-                                <div className="w-48">
+                                <div className="sm:w-48">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">DNI / RUC</label>
                                     <input
                                         type="text"
@@ -447,8 +447,8 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                     />
                                 </div>
                             </div>
-                            <div className="flex gap-4">
-                                <div className="w-48">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <div className="sm:w-48">
                                     <label className="text-xs font-bold text-slate-600 uppercase tracking-wide">Teléfono</label>
                                     <input
                                         type="text"
@@ -473,82 +473,84 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
 
                         {/* Pedido Items Table */}
                         <div className="border border-slate-400 rounded-lg overflow-hidden mb-5">
-                            <table className="w-full text-sm">
-                                <thead>
-                                    <tr className="bg-slate-100">
-                                        <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-12">Ítem</th>
-                                        <th className="border-r border-b border-slate-400 px-2 py-2 text-left font-bold text-slate-700 w-[22%]">Componente / Detalle</th>
-                                        <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[20%]">Medidas (Ancho x Alto x Prof.)</th>
-                                        <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Color / Acabado</th>
-                                        <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Herrajes / Tiradores</th>
-                                        <th className="border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Notas de Taller</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {items.map((item, index) => (
-                                        <tr key={item.id} className="hover:bg-green-50/50 transition-colors group">
-                                            <td className="border-r border-b border-slate-300 px-2 py-2 text-center text-slate-600 font-medium">
-                                                {index + 1}
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-1 py-1">
-                                                <input
-                                                    type="text"
-                                                    value={item.componente}
-                                                    onChange={(e) => updateItem(item.id, 'componente', e.target.value)}
-                                                    placeholder="Ej: Cuerpo de estantería"
-                                                    className="w-full outline-none py-1 px-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-1 py-1">
-                                                <input
-                                                    type="text"
-                                                    value={item.medidas}
-                                                    onChange={(e) => updateItem(item.id, 'medidas', e.target.value)}
-                                                    placeholder="Ej: 120 x 200 x 30 cm"
-                                                    className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-1 py-1">
-                                                <input
-                                                    type="text"
-                                                    value={item.colorAcabado}
-                                                    onChange={(e) => updateItem(item.id, 'colorAcabado', e.target.value)}
-                                                    placeholder="Ej: Roble Natural"
-                                                    className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                            </td>
-                                            <td className="border-r border-b border-slate-300 px-1 py-1">
-                                                <input
-                                                    type="text"
-                                                    value={item.herrajes}
-                                                    onChange={(e) => updateItem(item.id, 'herrajes', e.target.value)}
-                                                    placeholder="Ej: Telescópicos"
-                                                    className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                            </td>
-                                            <td className="border-b border-slate-300 px-1 py-1 relative">
-                                                <input
-                                                    type="text"
-                                                    value={item.notasTaller}
-                                                    onChange={(e) => updateItem(item.id, 'notasTaller', e.target.value)}
-                                                    placeholder="Ej: Reforzar base"
-                                                    className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
-                                                />
-                                                {items.length > 1 && (
-                                                    <button
-                                                        data-pdf-hide
-                                                        onClick={() => removeItem(item.id)}
-                                                        className="absolute right-0.5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 transition-all p-0.5"
-                                                        title="Eliminar ítem"
-                                                    >
-                                                        <Trash2 className="h-3.5 w-3.5" />
-                                                    </button>
-                                                )}
-                                            </td>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm" style={{ minWidth: '600px' }}>
+                                    <thead>
+                                        <tr className="bg-slate-100">
+                                            <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-10 sm:w-12">Ítem</th>
+                                            <th className="border-r border-b border-slate-400 px-2 py-2 text-left font-bold text-slate-700 w-[22%]">Componente</th>
+                                            <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[20%]">Medidas</th>
+                                            <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Color</th>
+                                            <th className="border-r border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Herrajes</th>
+                                            <th className="border-b border-slate-400 px-2 py-2 text-center font-bold text-slate-700 w-[16%]">Notas</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        {items.map((item, index) => (
+                                            <tr key={item.id} className="hover:bg-green-50/50 transition-colors group">
+                                                <td className="border-r border-b border-slate-300 px-2 py-2 text-center text-slate-600 font-medium">
+                                                    {index + 1}
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
+                                                    <input
+                                                        type="text"
+                                                        value={item.componente}
+                                                        onChange={(e) => updateItem(item.id, 'componente', e.target.value)}
+                                                        placeholder="Ej: Cuerpo de estantería"
+                                                        className="w-full outline-none py-1 px-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
+                                                    <input
+                                                        type="text"
+                                                        value={item.medidas}
+                                                        onChange={(e) => updateItem(item.id, 'medidas', e.target.value)}
+                                                        placeholder="Ej: 120 x 200 x 30 cm"
+                                                        className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
+                                                    <input
+                                                        type="text"
+                                                        value={item.colorAcabado}
+                                                        onChange={(e) => updateItem(item.id, 'colorAcabado', e.target.value)}
+                                                        placeholder="Ej: Roble Natural"
+                                                        className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                </td>
+                                                <td className="border-r border-b border-slate-300 px-1 py-1">
+                                                    <input
+                                                        type="text"
+                                                        value={item.herrajes}
+                                                        onChange={(e) => updateItem(item.id, 'herrajes', e.target.value)}
+                                                        placeholder="Ej: Telescópicos"
+                                                        className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                </td>
+                                                <td className="border-b border-slate-300 px-1 py-1 relative">
+                                                    <input
+                                                        type="text"
+                                                        value={item.notasTaller}
+                                                        onChange={(e) => updateItem(item.id, 'notasTaller', e.target.value)}
+                                                        placeholder="Ej: Reforzar base"
+                                                        className="w-full outline-none text-center py-1 text-sm text-slate-800 bg-transparent placeholder:text-slate-400"
+                                                    />
+                                                    {items.length > 1 && (
+                                                        <button
+                                                            data-pdf-hide
+                                                            onClick={() => removeItem(item.id)}
+                                                            className="absolute right-0.5 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 text-red-400 hover:text-red-600 transition-all p-0.5"
+                                                            title="Eliminar ítem"
+                                                        >
+                                                            <Trash2 className="h-3.5 w-3.5" />
+                                                        </button>
+                                                    )}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
 
                             {/* Add Item Button */}
                             <div data-pdf-hide className="bg-slate-50 px-3 py-2 border-t border-slate-300">
@@ -575,47 +577,47 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                         </div>
 
                         {/* Signatures */}
-                        <div className="flex justify-between items-end mt-10 pt-4">
+                        <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end mt-10 pt-4 gap-6">
                             <div className="text-center">
-                                <div className="w-56 border-b-2 border-slate-800 mb-2"></div>
-                                <p className="text-sm font-semibold text-slate-700">Firma de Conformidad Cliente</p>
+                                <div className="w-40 sm:w-56 border-b-2 border-slate-800 mb-2"></div>
+                                <p className="text-xs sm:text-sm font-semibold text-slate-700">Firma de Conformidad Cliente</p>
                             </div>
                             <div className="text-center">
-                                <div className="w-56 border-b-2 border-slate-800 mb-2"></div>
-                                <p className="text-sm font-semibold text-slate-700">Firma Responsable Taller</p>
+                                <div className="w-40 sm:w-56 border-b-2 border-slate-800 mb-2"></div>
+                                <p className="text-xs sm:text-sm font-semibold text-slate-700">Firma Responsable Taller</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Action Buttons (sticky footer) */}
-                <div className="shrink-0 border-t border-slate-200 bg-slate-50 px-6 py-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="shrink-0 border-t border-slate-200 bg-slate-50 px-4 sm:px-6 py-3 sm:py-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                         {/* Download PDF */}
                         <button
                             onClick={handleDownloadPDF}
                             disabled={isGeneratingPdf}
-                            className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 disabled:bg-slate-500 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-900 disabled:bg-slate-500 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Download className="h-5 w-5" />
+                            <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                             {isGeneratingPdf ? 'Generando...' : 'Descargar PDF'}
                         </button>
 
                         {/* Send to Company WhatsApp */}
                         <button
                             onClick={handleSendWhatsAppEmpresa}
-                            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Send className="h-5 w-5" />
+                            <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                             Enviar a Empresa
                         </button>
 
                         {/* Send to Client WhatsApp */}
                         <button
                             onClick={handleSendWhatsAppCliente}
-                            className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-5 rounded-xl shadow-md transition-all active:scale-[0.98]"
+                            className="flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
-                            <Send className="h-5 w-5" />
+                            <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                             Enviar a Cliente
                         </button>
                     </div>
@@ -625,3 +627,4 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
         document.body
     );
 };
+
