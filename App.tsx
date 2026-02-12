@@ -186,7 +186,7 @@ function App() {
           </div>
 
           <div className="border-t border-green-800 pt-8 text-center text-green-300 text-sm">
-            <p>© 2024 DG DecorGlass Diseños & Proyectos. Todos los derechos reservados.</p>
+            <p>© 2026 DG DecorGlass Diseños & Proyectos. Todos los derechos reservados.</p>
           </div>
         </div>
       </footer>
