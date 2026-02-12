@@ -1,0 +1,458 @@
+@import "tailwindcss";
+
+/* ======================================
+   DG DecorGlass - Custom Styles
+   ====================================== */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+/* ======================================
+   Carousel Styles
+   ====================================== */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.carousel-track {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.carousel-inner {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+  flex: 0 0 calc(33.333% - 1.33rem);
+  min-width: calc(33.333% - 1.33rem);
+  opacity: 0.7;
+  transform: scale(0.98);
+  transition: all 0.4s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 30px rgba(22, 101, 52, 0.4);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-arrow-left {
+  left: 1rem;
+}
+
+.carousel-arrow-right {
+  right: 1rem;
+}
+
+/* Dots Indicators */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #15803d;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(21, 128, 61, 0.3);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  background: #15803d;
+  transform: scale(1.2);
+  animation: pulse-glow 2s infinite;
+}
+
+/* Progress Bar */
+.carousel-progress {
+  width: 100%;
+  max-width: 300px;
+  height: 4px;
+  background: rgba(21, 128, 61, 0.2);
+  border-radius: 2px;
+  margin: 1.5rem auto 0;
+  overflow: hidden;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #15803d, #22c55e);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .carousel-slide {
+    flex: 0 0 calc(50% - 1rem);
+    min-width: calc(50% - 1rem);
+  }
+
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-arrow-left {
+    left: 0.5rem;
+  }
+
+  .carousel-arrow-right {
+    right: 0.5rem;
+  }
+}
+
+/* ======================================
+   Product Card Enhancements
+   ====================================== */
+
+.product-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.1) 100%);
+  pointer-events: none;
+}
+
+.product-card-image img {
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.08);
+}
+
+/* Badge shimmer effect */
+.badge-shimmer {
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* ======================================
+   Hero Section Enhancements
+   ====================================== */
+
+.hero-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent);
+  animation: shimmer 3s infinite;
+}
+
+/* ======================================
+   Additional Utility Classes
+   ====================================== */
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #166534 0%, #22c55e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================
+   Service Carousel Styles
+   ====================================== */
+
+.service-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  overflow: hidden;
+}
+
+.service-carousel-track {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.service-carousel-inner {
+  display: flex;
+  gap: 2rem;
+}
+
+.service-carousel-slide {
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.service-carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Service Carousel Arrows */
+.service-carousel-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+}
+
+.service-carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 30px rgba(22, 101, 52, 0.5);
+}
+
+.service-carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.service-carousel-arrow-left {
+  left: 0.5rem;
+}
+
+.service-carousel-arrow-right {
+  right: 0.5rem;
+}
+
+/* Service Carousel Dots */
+.service-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.service-carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #15803d;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.service-carousel-dot:hover {
+  background: rgba(21, 128, 61, 0.3);
+  transform: scale(1.2);
+}
+
+.service-carousel-dot.active {
+  background: #15803d;
+  transform: scale(1.2);
+  animation: pulse-glow 2s infinite;
+}
+
+/* Service Carousel Progress Bar */
+.service-carousel-progress {
+  width: 100%;
+  max-width: 300px;
+  height: 4px;
+  background: rgba(21, 128, 61, 0.2);
+  border-radius: 2px;
+  margin: 1.5rem auto 0;
+  overflow: hidden;
+}
+
+.service-carousel-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #15803d, #22c55e);
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+/* Service Carousel Responsive */
+@media (max-width: 1024px) {
+  .service-carousel-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+
+  .service-carousel-arrow-left {
+    left: 0.25rem;
+  }
+
+  .service-carousel-arrow-right {
+    right: 0.25rem;
+  }
+}
