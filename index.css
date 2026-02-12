@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0fdf4;
+  /* green-50 */
+}
+
 /* ======================================
    DG DecorGlass - Custom Styles
    ====================================== */
