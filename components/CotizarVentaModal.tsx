@@ -71,7 +71,7 @@ export const CotizarVentaModal: React.FC<CotizarVentaModalProps> = ({ product, i
             const slate400: [number, number, number] = [148, 163, 184];
             const greenBg: [number, number, number] = [240, 253, 244];
 
-            // ── HEADER ──
+        
             try {
                 const logoUrl = '/images/logo-decorglass.svg';
                 const img = new Image();
