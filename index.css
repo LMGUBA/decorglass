@@ -2,23 +2,56 @@
 
 @theme {
   --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  /* DecorGlass Brand Green Palette — Sophisticated */
+  --color-primary: #1F5E3B;
+  --color-primary-light: #7BC5A3;
+  --color-primary-dark: #0E3A27;
+  --color-accent: #B8D8C7;
+  --color-accent-light: #D4EDE0;
+  --color-accent-dark: #4CAF7D;
+  --color-surface: #F7FAF8;
+  --color-surface-alt: #EEF5F1;
+  --color-dark: #1C1C1E;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #f0fdf4;
-  /* green-50 */
+  background-color: #F7FAF8;
+  color: #1C1C1E;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ======================================
-   DG DecorGlass - Custom Styles
+   DG DecorGlass - Premium Design System
    ====================================== */
 
 /* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
 
   to {
@@ -31,6 +64,18 @@ body {
   from {
     opacity: 0;
     transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
   }
 
   to {
@@ -53,20 +98,247 @@ body {
 
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 0 20px rgba(31, 94, 59, 0.25);
   }
 
   50% {
-    box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 40px rgba(31, 94, 59, 0.45);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes grain {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-2%, -2%);
+  }
+
+  20% {
+    transform: translate(2%, 2%);
+  }
+
+  30% {
+    transform: translate(-1%, 1%);
+  }
+
+  40% {
+    transform: translate(1%, -1%);
+  }
+
+  50% {
+    transform: translate(-2%, 2%);
+  }
+
+  60% {
+    transform: translate(2%, -2%);
+  }
+
+  70% {
+    transform: translate(0, 2%);
+  }
+
+  80% {
+    transform: translate(-2%, 0);
+  }
+
+  90% {
+    transform: translate(2%, 1%);
   }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .animate-slide-in {
-  animation: slideIn 0.5s ease-out forwards;
+  animation: slideIn 0.6s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Stagger animations */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+
+/* ======================================
+   Hero Section
+   ====================================== */
+
+.hero-gradient {
+  background: linear-gradient(160deg,
+      rgba(14, 58, 39, 0.92) 0%,
+      rgba(31, 94, 59, 0.80) 40%,
+      rgba(123, 197, 163, 0.65) 70%,
+      rgba(184, 216, 199, 0.40) 100%);
+}
+
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 15% 45%, rgba(123, 197, 163, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(31, 94, 59, 0.10) 0%, transparent 40%),
+    radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.04) 0%, transparent 35%);
+}
+
+/* ======================================
+   Button Styles
+   ====================================== */
+
+.btn-primary {
+  background: linear-gradient(135deg, #1F5E3B 0%, #2D8A5E 50%, #4CAF7D 100%);
+  color: white;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 18px rgba(31, 94, 59, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(123, 197, 163, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(31, 94, 59, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #1F5E3B;
+  color: #1F5E3B;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1F5E3B 0%, #2D8A5E 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-secondary:hover {
+  color: white;
+  border-color: #2D8A5E;
+}
+
+/* ======================================
+   Card Styles
+   ====================================== */
+
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(31, 94, 59, 0.12), 0 8px 20px rgba(123, 197, 163, 0.08);
+}
+
+.service-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(31, 94, 59, 0.06);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(31, 94, 59, 0.06);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(31, 94, 59, 0.12), 0 4px 12px rgba(123, 197, 163, 0.08);
+  border-color: rgba(31, 94, 59, 0.15);
+}
+
+.service-card-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(145deg, #1F5E3B 0%, #2D8A5E 60%, #7BC5A3 100%);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(31, 94, 59, 0.2);
 }
 
 /* ======================================
@@ -106,7 +378,6 @@ body {
   transform: scale(1);
 }
 
-/* Navigation Arrows */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -117,22 +388,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  background: linear-gradient(145deg, #1F5E3B 0%, #2D8A5E 100%);
   color: white;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+  box-shadow: 0 4px 20px rgba(31, 94, 59, 0.35);
 }
 
 .carousel-arrow:hover {
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 30px rgba(22, 101, 52, 0.4);
-}
-
-.carousel-arrow:active {
-  transform: translateY(-50%) scale(0.95);
+  box-shadow: 0 6px 30px rgba(31, 94, 59, 0.45);
+  background: linear-gradient(145deg, #0E3A27 0%, #1F5E3B 100%);
 }
 
 .carousel-arrow-left {
@@ -143,7 +411,6 @@ body {
   right: 1rem;
 }
 
-/* Dots Indicators */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -155,7 +422,7 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #15803d;
+  border: 2px solid #1F5E3B;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -163,22 +430,22 @@ body {
 }
 
 .carousel-dot:hover {
-  background: rgba(21, 128, 61, 0.3);
+  background: rgba(31, 94, 59, 0.3);
+  border-color: #1F5E3B;
   transform: scale(1.2);
 }
 
 .carousel-dot.active {
-  background: #15803d;
+  background: linear-gradient(135deg, #1F5E3B, #4CAF7D);
+  border-color: #1F5E3B;
   transform: scale(1.2);
-  animation: pulse-glow 2s infinite;
 }
 
-/* Progress Bar */
 .carousel-progress {
   width: 100%;
   max-width: 300px;
   height: 4px;
-  background: rgba(21, 128, 61, 0.2);
+  background: rgba(31, 94, 59, 0.12);
   border-radius: 2px;
   margin: 1.5rem auto 0;
   overflow: hidden;
@@ -186,12 +453,11 @@ body {
 
 .carousel-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #15803d, #22c55e);
+  background: linear-gradient(90deg, #0E3A27, #1F5E3B, #7BC5A3);
   border-radius: 2px;
   transition: width 0.6s ease;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .carousel-slide {
     flex: 0 0 calc(50% - 1rem);
@@ -225,21 +491,23 @@ body {
 }
 
 /* ======================================
-   Product Card Enhancements
+   Product Card Styles
    ====================================== */
 
 .product-card {
   background: white;
   border-radius: 1.5rem;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(31, 94, 59, 0.06);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   height: 100%;
+  border: 1px solid rgba(31, 94, 59, 0.05);
 }
 
 .product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(31, 94, 59, 0.12), 0 4px 12px rgba(123, 197, 163, 0.08);
+  border-color: rgba(31, 94, 59, 0.15);
 }
 
 .product-card-image {
@@ -254,7 +522,7 @@ body {
   background: linear-gradient(to bottom,
       transparent 0%,
       transparent 60%,
-      rgba(0, 0, 0, 0.1) 100%);
+      rgba(14, 58, 39, 0.12) 100%);
   pointer-events: none;
 }
 
@@ -266,54 +534,60 @@ body {
   transform: scale(1.08);
 }
 
-/* Badge shimmer effect */
 .badge-shimmer {
   background: linear-gradient(90deg,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.5) 50%,
+      rgba(184, 216, 199, 0.5) 50%,
       rgba(255, 255, 255, 0) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }
 
 /* ======================================
-   Hero Section Enhancements
+   Section Styles
    ====================================== */
 
-.hero-badge {
-  position: relative;
-  overflow: hidden;
+.section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  color: #1C1C1E;
 }
 
-.hero-badge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.4),
-      transparent);
-  animation: shimmer 3s infinite;
+.section-subtitle {
+  color: #5A5A5E;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.badge-primary {
+  background: linear-gradient(135deg, rgba(31, 94, 59, 0.08) 0%, rgba(123, 197, 163, 0.15) 100%);
+  color: #1F5E3B;
+  border: 1px solid rgba(31, 94, 59, 0.12);
 }
 
 /* ======================================
-   Additional Utility Classes
+   Utility Classes
    ====================================== */
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
 .gradient-text {
-  background: linear-gradient(135deg, #166534 0%, #22c55e 100%);
+  background: linear-gradient(135deg, #0E3A27 0%, #1F5E3B 40%, #7BC5A3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(247, 250, 248, 0.75);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(14, 58, 39, 0.75);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .hover-lift {
@@ -322,11 +596,22 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(31, 94, 59, 0.1);
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ======================================
-   Service Carousel Styles
+   Service Carousel
    ====================================== */
 
 .service-carousel-container {
@@ -359,7 +644,6 @@ body {
   transform: scale(1);
 }
 
-/* Service Carousel Arrows */
 .service-carousel-arrow {
   position: absolute;
   top: 45%;
@@ -370,22 +654,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #166534 0%, #15803d 100%);
+  background: linear-gradient(145deg, #1F5E3B 0%, #2D8A5E 100%);
   color: white;
   border: none;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(22, 101, 52, 0.3);
+  box-shadow: 0 4px 20px rgba(31, 94, 59, 0.35);
 }
 
 .service-carousel-arrow:hover {
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 30px rgba(22, 101, 52, 0.5);
-}
-
-.service-carousel-arrow:active {
-  transform: translateY(-50%) scale(0.95);
+  box-shadow: 0 6px 30px rgba(31, 94, 59, 0.45);
+  background: linear-gradient(145deg, #0E3A27 0%, #1F5E3B 100%);
 }
 
 .service-carousel-arrow-left {
@@ -396,7 +677,6 @@ body {
   right: 0.5rem;
 }
 
-/* Service Carousel Dots */
 .service-carousel-dots {
   display: flex;
   justify-content: center;
@@ -408,7 +688,7 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 2px solid #15803d;
+  border: 2px solid #1F5E3B;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -416,22 +696,22 @@ body {
 }
 
 .service-carousel-dot:hover {
-  background: rgba(21, 128, 61, 0.3);
+  background: rgba(31, 94, 59, 0.3);
+  border-color: #1F5E3B;
   transform: scale(1.2);
 }
 
 .service-carousel-dot.active {
-  background: #15803d;
+  background: linear-gradient(135deg, #1F5E3B, #4CAF7D);
+  border-color: #1F5E3B;
   transform: scale(1.2);
-  animation: pulse-glow 2s infinite;
 }
 
-/* Service Carousel Progress Bar */
 .service-carousel-progress {
   width: 100%;
   max-width: 300px;
   height: 4px;
-  background: rgba(21, 128, 61, 0.2);
+  background: rgba(31, 94, 59, 0.12);
   border-radius: 2px;
   margin: 1.5rem auto 0;
   overflow: hidden;
@@ -439,12 +719,11 @@ body {
 
 .service-carousel-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #15803d, #22c55e);
+  background: linear-gradient(90deg, #0E3A27, #1F5E3B, #7BC5A3);
   border-radius: 2px;
   transition: width 0.6s ease;
 }
 
-/* Service Carousel Responsive */
 @media (max-width: 1024px) {
   .service-carousel-arrow {
     width: 44px;
@@ -465,4 +744,64 @@ body {
   .service-carousel-arrow-right {
     right: 0.25rem;
   }
+}
+
+/* ======================================
+   Floating Action Buttons
+   ====================================== */
+
+/* Animación de ping para llamar la atención */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* ======================================
+   Contact Form
+   ====================================== */
+
+.form-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(31, 94, 59, 0.12);
+  border-radius: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  background: #FAFDFB;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #1F5E3B;
+  box-shadow: 0 0 0 4px rgba(31, 94, 59, 0.1);
+  background: white;
+}
+
+.form-input::placeholder {
+  color: #9CA3AF;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* ======================================
+   Divider accent line
+   ====================================== */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #1F5E3B, #7BC5A3);
+  border-radius: 2px;
+}
+
+/* ======================================
+   Section Grain Background (for dark sections)
+   ====================================== */
+.dark-section {
+  background: linear-gradient(160deg, #0E3A27 0%, #1F5E3B 45%, #2D8A5E 100%);
+  position: relative;
 }

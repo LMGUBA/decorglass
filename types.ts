@@ -16,9 +16,12 @@ export interface GeneratedVariant {
 }
 
 export enum AppView {
+  HOME = 'HOME',
   CATALOG = 'CATALOG',
   PRODUCT_DETAIL = 'PRODUCT_DETAIL',
   SERVICES = 'SERVICES',
+  ABOUT = 'ABOUT',
+  CONTACT = 'CONTACT',
 }
 
 export interface MelamineTexture {

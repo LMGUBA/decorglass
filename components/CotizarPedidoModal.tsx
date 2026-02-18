@@ -74,7 +74,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
 
             // ── HEADER ──
             try {
-                const logoUrl = '/images/logo-decorglass.svg';
+                const logoUrl = '/images/logo.svg';
                 const img = new Image();
                 img.src = logoUrl;
                 await new Promise((resolve, reject) => {
@@ -376,7 +376,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
             {/* Modal Container */}
             <div className="relative bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[95vh] overflow-hidden flex flex-col animate-fade-in">
                 {/* Modal Header */}
-                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200 bg-gradient-to-r from-green-700 to-green-800 shrink-0">
+                <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-200 bg-gradient-to-r from-[#1F5E3B] to-[#0E3A27] shrink-0">
                     <div className="flex items-center gap-2 sm:gap-3">
                         <ClipboardList className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                         <h2 className="text-base sm:text-xl font-bold text-white">Proforma de Pedido</h2>
@@ -401,7 +401,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 gap-2">
                             <div className="flex items-center gap-2 sm:gap-3">
                                 <img
-                                    src="/images/logo-decorglass.svg"
+                                    src="/images/logo.svg"
                                     alt="DecorGlass Logo"
                                     className="h-8 sm:h-12 w-auto object-contain"
                                 />
@@ -417,7 +417,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         type="date"
                                         value={fechaEntrega}
                                         onChange={(e) => setFechaEntrega(e.target.value)}
-                                        className="border-b-2 border-slate-300 focus:border-green-600 outline-none py-0.5 px-1 text-xs sm:text-sm text-slate-900 bg-transparent transition-colors"
+                                        className="border-b-2 border-slate-300 focus:border-[#4CAF7D] outline-none py-0.5 px-1 text-xs sm:text-sm text-slate-900 bg-transparent transition-colors"
                                     />
                                 </div>
                             </div>
@@ -433,7 +433,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         value={nombreCliente}
                                         onChange={(e) => setNombreCliente(e.target.value)}
                                         placeholder="Ingrese nombre completo"
-                                        className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
+                                        className="w-full border-b-2 border-slate-300 focus:border-[#4CAF7D] outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
                                 <div className="sm:w-48">
@@ -443,7 +443,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         value={dniRuc}
                                         onChange={(e) => setDniRuc(e.target.value)}
                                         placeholder="Nº documento"
-                                        className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
+                                        className="w-full border-b-2 border-slate-300 focus:border-[#4CAF7D] outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
                             </div>
@@ -455,7 +455,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         value={telefono}
                                         onChange={(e) => setTelefono(e.target.value)}
                                         placeholder="Nº teléfono"
-                                        className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
+                                        className="w-full border-b-2 border-slate-300 focus:border-[#4CAF7D] outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
                                 <div className="flex-1">
@@ -465,7 +465,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                         value={direccion}
                                         onChange={(e) => setDireccion(e.target.value)}
                                         placeholder="Dirección del cliente"
-                                        className="w-full border-b-2 border-slate-300 focus:border-green-600 outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
+                                        className="w-full border-b-2 border-slate-300 focus:border-[#4CAF7D] outline-none py-1.5 text-sm text-slate-900 bg-transparent transition-colors placeholder:text-slate-400"
                                     />
                                 </div>
                             </div>
@@ -487,7 +487,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                     </thead>
                                     <tbody>
                                         {items.map((item, index) => (
-                                            <tr key={item.id} className="hover:bg-green-50/50 transition-colors group">
+                                            <tr key={item.id} className="hover:bg-[#4CAF7D]/5 transition-colors group">
                                                 <td className="border-r border-b border-slate-300 px-2 py-2 text-center text-slate-600 font-medium">
                                                     {index + 1}
                                                 </td>
@@ -556,7 +556,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                             <div data-pdf-hide className="bg-slate-50 px-3 py-2 border-t border-slate-300">
                                 <button
                                     onClick={addItem}
-                                    className="flex items-center text-xs font-semibold text-green-700 hover:text-green-900 transition-colors gap-1"
+                                    className="flex items-center text-xs font-semibold text-[#1F5E3B] hover:text-[#4CAF7D] transition-colors gap-1"
                                 >
                                     <Plus className="h-3.5 w-3.5" />
                                     Agregar componente
@@ -572,7 +572,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                                 onChange={(e) => setObservacionesTecnicas(e.target.value)}
                                 placeholder="Escriba observaciones técnicas adicionales..."
                                 rows={4}
-                                className="w-full border-2 border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 outline-none focus:border-green-600 transition-colors resize-none bg-transparent placeholder:text-slate-400"
+                                className="w-full border-2 border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 outline-none focus:border-[#4CAF7D] transition-colors resize-none bg-transparent placeholder:text-slate-400"
                             />
                         </div>
 
@@ -606,7 +606,7 @@ export const CotizarPedidoModal: React.FC<CotizarPedidoModalProps> = ({ product,
                         {/* Send to Company WhatsApp */}
                         <button
                             onClick={handleSendWhatsAppEmpresa}
-                            className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
+                            className="flex items-center justify-center gap-2 bg-[#1F5E3B] hover:bg-[#0E3A27] text-white font-bold py-2.5 sm:py-3 px-4 sm:px-5 rounded-xl shadow-md transition-all active:scale-[0.98] text-sm sm:text-base"
                         >
                             <Send className="h-4 w-4 sm:h-5 sm:w-5" />
                             Enviar a Empresa

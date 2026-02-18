@@ -174,7 +174,7 @@ export const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) =>
                                 }}
                             >
                                 {/* Service Card */}
-                                <div className="service-card group bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                                <div className="service-card group bg-white border border-[#EEF5F1] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
                                     <div className="relative h-56 overflow-hidden">
                                         <img
                                             src={service.image}
@@ -182,7 +182,7 @@ export const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) =>
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                                        <span className="absolute top-3 right-3 px-3 py-1 bg-green-600/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full uppercase tracking-wider">
+                                        <span className="absolute top-3 right-3 px-3 py-1 bg-[#4CAF7D]/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full uppercase tracking-wider">
                                             {service.badge}
                                         </span>
                                         <h3 className="absolute bottom-4 left-4 right-4 text-white text-xl font-bold leading-tight drop-shadow-lg">
@@ -193,7 +193,7 @@ export const ServiceCarousel: React.FC<ServiceCarouselProps> = ({ services }) =>
                                         <p className="text-sm text-slate-600 leading-relaxed mb-4">
                                             {service.description}
                                         </p>
-                                        <div className="flex items-center text-green-700 font-semibold text-sm group-hover:text-green-600 transition-colors">
+                                        <div className="flex items-center text-[#1F5E3B] font-semibold text-sm group-hover:text-[#4CAF7D] transition-colors">
                                             <span>Consultar servicio</span>
                                             <svg
                                                 className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
