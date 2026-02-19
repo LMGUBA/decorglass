@@ -22,6 +22,7 @@ export enum AppView {
   SERVICES = 'SERVICES',
   ABOUT = 'ABOUT',
   CONTACT = 'CONTACT',
+  FERIAS = 'FERIAS',
 }
 
 export interface MelamineTexture {

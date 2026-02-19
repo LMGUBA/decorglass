@@ -19,6 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { view: AppView.SERVICES, label: 'Servicios' },
     { view: AppView.CATALOG, label: 'Portafolio' },
     { view: AppView.ABOUT, label: 'Nosotros' },
+    { view: AppView.FERIAS, label: 'Actividades' },
     { view: AppView.CONTACT, label: 'Contacto' },
   ];
 
@@ -47,8 +48,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.view}
                 onClick={() => handleNavigate(item.view)}
                 className={`px-4 py-2 rounded-lg font-medium text-sm transition-all ${activeView === item.view
-                    ? 'text-[#1F5E3B] bg-[#1F5E3B]/5 font-semibold'
-                    : 'text-[#5A5A5E] hover:text-[#1F5E3B] hover:bg-[#EEF5F1]/50'
+                  ? 'text-[#1F5E3B] bg-[#1F5E3B]/5 font-semibold'
+                  : 'text-[#5A5A5E] hover:text-[#1F5E3B] hover:bg-[#EEF5F1]/50'
                   }`}
               >
                 {item.label}
@@ -97,8 +98,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                 key={item.view}
                 onClick={() => handleNavigate(item.view)}
                 className={`w-full text-left px-4 py-3 rounded-xl font-medium transition-all ${activeView === item.view
-                    ? 'bg-[#1F5E3B]/5 text-[#1F5E3B] font-semibold'
-                    : 'text-[#5A5A5E] hover:bg-[#EEF5F1]/50'
+                  ? 'bg-[#1F5E3B]/5 text-[#1F5E3B] font-semibold'
+                  : 'text-[#5A5A5E] hover:bg-[#EEF5F1]/50'
                   }`}
               >
                 {item.label}

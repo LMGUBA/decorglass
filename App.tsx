@@ -10,6 +10,7 @@ import { Logo } from './components/Logo';
 import { FloatingButtons } from './components/FloatingButtons';
 import { MOCK_PRODUCTS } from './constants';
 import { FloatingPortfolio } from './components/FloatingPortfolio';
+import { FeriasCalendar } from './components/FeriasCalendar';
 import { Product, AppView } from './types';
 
 function App() {
@@ -89,8 +90,8 @@ function App() {
                     key={category}
                     onClick={() => handleCategoryClick(category)}
                     className={`px-4 py-2 rounded-lg shadow-sm hover-lift transition-all duration-300 ${selectedCategory === category
-                        ? 'bg-[#1F5E3B] text-white border border-[#1F5E3B]'
-                        : 'bg-white text-[#5A5A5E] border border-[#EEF5F1] hover:border-[#1F5E3B]/30'
+                      ? 'bg-[#1F5E3B] text-white border border-[#1F5E3B]'
+                      : 'bg-white text-[#5A5A5E] border border-[#EEF5F1] hover:border-[#1F5E3B]/30'
                       }`}
                   >
                     {category}
@@ -116,6 +117,10 @@ function App() {
             product={selectedProduct}
             onBack={() => handleNavigate(AppView.CATALOG)}
           />
+        )}
+
+        {currentView === AppView.FERIAS && (
+          <FeriasCalendar />
         )}
       </main>
 
